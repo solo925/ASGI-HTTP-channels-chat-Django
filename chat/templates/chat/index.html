@@ -1,25 +1,28 @@
-<!-- chat/templates/chat/index.html -->
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8"/>
-<title>Chat Rooms</title>
-</head>
-<body>
-What chat room would you like to enter?<br>
-<input id="room-name-input" type="text" size="100"><br>
-<input id="room-name-submit" type="button" value="Enter">
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="card p-4" style="width: 25rem;">
+        <div class="card-body">
+            <h5 class="card-title text-center mb-4">Enter Chat Room</h5>
+            <div class="form-group">
+                <input id="room-name-input" type="text" class="form-control" placeholder="Enter room name">
+            </div>
+            <button id="room-name-submit" class="btn btn-primary btn-block">Enter</button>
+        </div>
+    </div>
+</div>
+
 <script>
 document.querySelector('#room-name-input').focus();
 document.querySelector('#room-name-input').onkeyup = function(e) {
-if (e.keyCode === 13) { // enter, return
-document.querySelector('#room-name-submit').click();
-}
+    if (e.keyCode === 13) { // enter, return
+        document.querySelector('#room-name-submit').click();
+    }
 };
 document.querySelector('#room-name-submit').onclick = function(e) {
-var roomName = document.querySelector('#room-name-input').value;
-window.location.pathname = '/chat/' + roomName + '/';
+    var roomName = document.querySelector('#room-name-input').value;
+    window.location.pathname = '/chat/' + roomName + '/';
 };
 </script>
-</body>
-</html>
+{% endblock content %}
