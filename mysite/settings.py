@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'daphne',
     'chat',
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -129,6 +130,7 @@ ASGI_APPLICATION = "mysite.asgi.application"
 
 # Channels
 ASGI_APPLICATION = "mysite.asgi.application"
+
 CHANNEL_LAYERS = {
     "default": { 
         "BACKEND": "channels_redis.core.RedisChannelLayer",
